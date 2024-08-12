@@ -1,0 +1,4 @@
+---
+- name: join-node-to-chef-server
+  ansible.builtin.command:
+    cmd: chef-client --json-attributes /etc/chef/node.json --chef-license accept

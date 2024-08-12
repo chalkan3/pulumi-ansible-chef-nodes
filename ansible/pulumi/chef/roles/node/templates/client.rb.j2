@@ -1,0 +1,6 @@
+chef_server_url 'https://{{ chef_server_host }}/organizations/{{chef_organization_name}}'
+validation_client_name '{{ chef_organization_name  }}'
+validation_key '/etc/chef/{{ chef_organization_name }}.pem'
+node_name '{{chef_node_name}}'
+client_key '/etc/chef/{{ chef_client_name }}.pem'
+ssl_verify_mode :verify_none

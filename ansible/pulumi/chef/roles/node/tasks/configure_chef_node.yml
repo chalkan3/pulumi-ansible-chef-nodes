@@ -1,0 +1,6 @@
+---
+- name: configure-chef-node
+  ansible.builtin.template:
+    src: templates/node.js.j2
+    dest: /etc/chef/node.json
+    mode: 0644

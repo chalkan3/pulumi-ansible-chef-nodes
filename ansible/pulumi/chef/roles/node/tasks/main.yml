@@ -1,0 +1,11 @@
+---
+- ansible.builtin.include_tasks: wait_for_connection.yml
+- ansible.builtin.include_tasks: download_chef.yml
+- ansible.builtin.include_tasks: install_chef.yml
+- ansible.builtin.include_tasks: ensure_chef_path.yml
+- ansible.builtin.include_tasks: fetch_organization_pem.yml
+- ansible.builtin.include_tasks: fetch_chef_client.yml
+- ansible.builtin.include_tasks: configure_chef_client.yml
+- ansible.builtin.include_tasks: configure_chef_node.yml
+- ansible.builtin.include_tasks: join_chef_server.yml
+- ansible.builtin.include_tasks: daemon.yml

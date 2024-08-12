@@ -1,0 +1,6 @@
+---
+chef_server_host: null
+chef_node_name: null
+chef_organization_name: null
+chef_client_name: null
+node_run_list: []

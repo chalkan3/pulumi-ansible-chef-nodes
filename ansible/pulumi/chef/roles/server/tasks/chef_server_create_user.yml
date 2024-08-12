@@ -1,0 +1,4 @@
+---
+- name: chef-server-create-user
+  ansible.builtin.command: 
+    cmd: chef-server-ctl user-create root Admin Admin root@root.com psswdroot --filename /chef/resources/users/admin.pem

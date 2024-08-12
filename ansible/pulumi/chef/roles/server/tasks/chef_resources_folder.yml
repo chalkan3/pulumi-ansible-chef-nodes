@@ -1,0 +1,11 @@
+---
+- name: create-chef-resources-folder
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  loop: 
+  - /chef
+  - /chef/resources
+  - /chef/resources/users
+  - /chef/resources/organizations
+    

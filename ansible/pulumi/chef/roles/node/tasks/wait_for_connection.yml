@@ -1,0 +1,5 @@
+---
+- name: waiting-connection-with-host
+  ansible.builtin.wait_for_connection:
+    delay: 10
+    timeout: 1000

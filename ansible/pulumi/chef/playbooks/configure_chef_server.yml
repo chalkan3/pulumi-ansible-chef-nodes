@@ -1,0 +1,8 @@
+---
+- name: configure-chef-server
+  hosts: all 
+  become: true
+  gather_facts: false
+  roles:
+    - ../roles/server 
+#TODO idepotent provisioning in chef create user and organization

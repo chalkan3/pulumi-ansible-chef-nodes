@@ -1,0 +1,4 @@
+---
+- name: chef-server-create-organization
+  ansible.builtin.command:
+    cmd: chef-server-ctl org-create main-org main-org organization --association_user root --filename /chef/resources/organizations/main-org.pem

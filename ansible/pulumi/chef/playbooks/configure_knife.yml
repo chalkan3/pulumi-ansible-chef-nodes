@@ -1,0 +1,7 @@
+---
+- name: configure-chef-knife
+  hosts: all
+  become: false 
+  gather_facts: false
+  roles:
+    - ../roles/knife

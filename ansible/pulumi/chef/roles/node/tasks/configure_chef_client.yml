@@ -1,0 +1,6 @@
+---
+- name: configure-chef-node-client
+  ansible.builtin.template:
+    src: templates/client.rb.j2
+    dest: /etc/chef/client.rb
+    mode: 0644

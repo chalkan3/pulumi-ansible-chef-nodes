@@ -1,0 +1,15 @@
+---
+- name: fetch-client-pem-from-chef-server
+  ansible.builtin.fetch:
+    src: "/chef/resources/organizations/{{ chef_organization_name }}.pem"
+    dest: "/tmp/{{ chef_organization_name }}.pem"
+    flat: true 
+  delegate_to: "{{ chef_server_host }}" 
+
+- name: copy-client-pem
+  ansible.builtin.copy:
+    src: /tmp/{{ chef_organization_name }}.pem
+    dest: /etc/chef/{{ chef_organization_name}}.pem
+
+
+

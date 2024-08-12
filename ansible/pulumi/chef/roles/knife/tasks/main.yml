@@ -1,0 +1,3 @@
+---
+- ansible.builtin.include_tasks: fetch_credentials.yml
+- ansible.builtin.include_tasks: set_knife_configuration.yml

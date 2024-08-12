@@ -1,0 +1,4 @@
+---
+- name: chef-server-reconfigure
+  ansible.builtin.command: 
+    cmd: chef-server-ctl reconfigure --chef-license=accept

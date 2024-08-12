@@ -1,0 +1,6 @@
+---
+- name: download-chef
+  ansible.builtin.get_url:
+    url: https://omnitruck.chef.io/install.sh
+    dest: /tmp/chef_install.sh
+    mode: 0755

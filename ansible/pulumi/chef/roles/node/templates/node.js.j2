@@ -1,0 +1,8 @@
+{
+  "name": "{{ chef_node_name }}",
+  "run_list": [
+    {% for run_list_item in node_run_list %}
+    "{{ run_list_item }}"{{ "," if not loop.last }}
+    {% endfor %}
+  ]
+}

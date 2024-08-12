@@ -1,0 +1,8 @@
+---
+- ansible.builtin.include_tasks: wait_for_connection.yml
+- ansible.builtin.include_tasks: download_chef.yml
+- ansible.builtin.include_tasks: install_chef.yml
+- ansible.builtin.include_tasks: chef_server_reconfigure.yml
+- ansible.builtin.include_tasks: chef_resources_folder.yml
+- ansible.builtin.include_tasks: chef_server_create_user.yml
+- ansible.builtin.include_tasks: chef_server_create_organization.yml

@@ -1,0 +1,7 @@
+---
+- name: set-knife-configuration
+  connection: local
+  ansible.builtin.template:
+    src: templates/knife.rb.j2
+    dest: ~/.chef/knife.rb
+    mode: 0644

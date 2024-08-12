@@ -1,0 +1,75 @@
+encryptionsalt: v1:VYx7lpVNfKY=:v1:b/iIBATMdodzoP+z:I8J5VD8IyP1sd4BcuH0cXeNQ7rh/0w==
+config:
+  aws:region: us-east-1
+  vpc:
+    name:
+    cidrs_block: 10.0.0.0/16
+    subnets:
+      public-subnet:
+        cidrs_block: 10.0.1.0/24
+        public: True
+        tags: {}
+      
+    route-table:
+        main-route:
+          cidrs_block: ['0.0.0.0/0']
+          associate_subnets: ['public-subnet']
+    security-group:
+      main:
+        ingress:
+        - port:
+            from:
+            to:
+          protocol: tcp
+          cidrs_block: ['0.0.0.0/0']
+        engress:
+        - port:
+            from: 0
+            to: 0
+          protocol: -1
+          cidrs_block: ['0.0.0.0/0']
+        
+  chef-cluster:
+    name: web-cluster
+    server:
+      cookbooks:
+      - amazon-linux-web-server
+      - web-server
+      - kubernetes
+      databags:
+        nginx_variables: nginx/default.json
+      organization:
+        name: main-org
+        user: admin
+      infrastructure:
+        network:
+          subnet:
+            name: public-subnet
+        security-group:
+          name: main
+        instance:
+          type: t3.medium
+          ssh:
+            user: ec2-user
+            public-key: /Users/chalkan/.ssh/id_rsa.pub
+            private-key: /Users/chalkan/.ssh/id_rsa
+    nodes:
+      web-server:
+        client.rb:
+          chef_node_name: root
+          chef_organization_name: main-org
+          chef_client_name: admin
+          node_run_list:
+          - "recipe[amazon-linux-web-server::default]"
+        infrastructure:
+          network:
+            subnet:
+              name: public-subnet
+          security-group:
+            name: main
+          instance:
+            type: t3.medium 
+            ssh:
+              user: ec2-user
+              public-key: /Users/chalkan/.ssh/id_rsa.pub
+              private-key: /Users/chalkan/.ssh/id_rsa 

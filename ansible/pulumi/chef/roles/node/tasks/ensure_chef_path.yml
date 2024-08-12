@@ -1,0 +1,6 @@
+---
+- name: ensure-chef-path
+  ansible.builtin.file:
+    path: /etc/chef
+    state: directory
+    mode: 0755

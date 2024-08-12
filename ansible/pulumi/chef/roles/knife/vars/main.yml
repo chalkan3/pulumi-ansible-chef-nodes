@@ -1,0 +1,5 @@
+---
+chef_server_url: null
+chef_node_name: null
+chef_client_name: null
+chef_organization_name: null

@@ -1,0 +1,4 @@
+---
+- name: install-chef
+  ansible.builtin.command: 
+    cmd: /tmp/chef_install.sh -P chef-server

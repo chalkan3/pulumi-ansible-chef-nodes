@@ -1,0 +1,7 @@
+---
+- name: enable-chef-client-as-daemon
+  ansible.builtin.cron:
+    name: pulling-chef-client
+    minute: "*/1"
+    job: "/usr/bin/chef-client"
+    state: present
